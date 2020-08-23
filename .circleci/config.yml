@@ -7,7 +7,7 @@ jobs:
     steps:
       - run:
           name: "Install compiler-lib"
-          command: raco pkg install compiler-build
+          command: raco pkg install compiler-lib
       - checkout
       - run:
           name: "Installing dependencies"
