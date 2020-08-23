@@ -7,12 +7,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Installing dependencies"
+          command: raco setup
+      - run:
           name: "Running test suite"
-          command: raco test test.rkt
+          command: racket test.rkt
 
 workflows:
   version: 2.1
-  test:
+  test_workflow:
     jobs:
       - test
 
