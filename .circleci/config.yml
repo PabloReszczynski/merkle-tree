@@ -6,8 +6,8 @@ jobs:
       - image: racket/racket:7.8
     steps:
       - run:
-          name: "[DEBUG] raco help"
-          command: raco help
+          name: "Install compiler-lib"
+          command: raco pkg install compiler-build
       - checkout
       - run:
           name: "Installing dependencies"
