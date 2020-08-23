@@ -8,4 +8,10 @@ jobs:
       - checkout
       - run: raco test test.rkt
 
+workflows:
+  version: 2.1
+  test:
+    - test
+
+
 
