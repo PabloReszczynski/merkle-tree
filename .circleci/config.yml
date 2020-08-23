@@ -11,7 +11,7 @@ jobs:
           command: raco setup
       - run:
           name: "Running test suite"
-          command: racket test.rkt
+          command: raco test test.rkt
 
 workflows:
   version: 2.1
