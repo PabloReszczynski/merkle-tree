@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: racket/racket:7.8
     steps:
+      - run:
+          name: "[DEBUG] raco help"
+          command: raco help
       - checkout
       - run:
           name: "Installing dependencies"
