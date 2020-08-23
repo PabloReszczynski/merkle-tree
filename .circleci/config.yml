@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: racket/racket:7.8
+    steps:
+      - run:
+          name: "Install compiler-lib"
+          command: raco pkg install --auto compiler-lib
+      - checkout
+      - run:
+          name: "Installing dependencies"
+          command: raco setup
+      - run:
+          name: "Running test suite"
+          command: raco test test.rkt
+
+workflows:
+  version: 2.1
+  test_workflow:
+    jobs:
+      - test
+
+
+
