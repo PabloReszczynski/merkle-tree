@@ -1,10 +1,16 @@
 #lang racket/base
 
-  ;; (Optional) main submodule. Put code here if you need it to be executed when
-  ;; this file is run using DrRacket or the `racket` executable.  The code here
-  ;; does not run when this file is required by another module. Documentation:
-  ;; http://docs.racket-lang.org/guide/Module_Syntax.html#%28part._main-and-test%29
+(require openssl/md5)
 
 (provide make-merkle-root)
+(provide make-merkle-leaf)
 
-(define (make-merkle-root) #f)
+(define (make-merkle-root)
+  '(:hash 0
+    :children '()))
+
+(define (make-merkle-leaf data)
+  (let* [(sp (open-input-string data))
+         (hash (md5 sp))]
+    `(:hash ,hash
+      :data ,data)))
